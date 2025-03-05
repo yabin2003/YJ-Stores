@@ -153,17 +153,24 @@ body
 @media (max-width: 768px) {
     #logo
     {
-        margin-left: 20px;
+        margin-left: 395px;
+        height:fit-content;
     }
     .hamburger {
         display: none;
     }
     .sr_cnt
     {
-        margin-left: 350px;
-        margin-top: -50px;
+        margin-left: 80px;
+        margin-top: 50px;
+        width: 500px;
+        margin-bottom: 70px;
+        
     }
-
+    #search-input
+    {
+        width: 415px;
+    }
     .nav-links {
         display:inline-flex;
         flex-direction: row;
@@ -172,27 +179,17 @@ body
         right: 0;
         width: 100%;
         padding: 20px;
-        margin-left: 620px;
-        margin-top: -130px;
-        border-bottom: 1px solid #ddd;
+        margin-left: 590px;
+        margin-top: -200px;
+        margin-bottom: 70px;        
     }
-    .nav-links:active{
-        background: #dfe4ea;
-        background-position: center;
-        border-radius: 15px;
-        padding: 2px;
-        box-shadow:  0 0 15px #ff793f;
-
-    }
-
-    
 
     .navbar {
         flex-direction: column;
         align-items: flex-start;
        
     }
-
+    
     .home-cnt {
         flex-direction: column;
         align-items: center;
@@ -200,7 +197,7 @@ body
     }
 
     #home-img2, #home-img1 {
-        margin: 160px 20px;
+        margin: 230px 20px;
         width: 250px;
     }
 
@@ -344,7 +341,7 @@ body.darkmode
 }
 
 .offer-container {
-    width: 100%;
+    width: 1007vh;
     height: max-content;
     overflow: hidden;
     position: relative;
@@ -357,8 +354,8 @@ body.darkmode
 }
 
 .offer-scroll img {
-    width: 500px; 
-    height: 500px; 
+    width: 850px; 
+    height: 450px; 
     margin-right: 10px; 
     border-radius: 10px;
     object-fit: center;
@@ -374,6 +371,14 @@ body.darkmode
     100% {
         transform: translateX(-50%);
     }
+}
+#offer-mq ul
+{
+    font-size: 1.9rem;
+    animation: blink 1s infinite;
+    list-style: none;
+    display: flex;
+    float: left;
 }
 #products_page
 {
