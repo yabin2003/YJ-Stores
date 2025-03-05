@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+</head>
+<style>
+    body{
+        background-color: #f5f5f5;
+        }
+    /* Cart page CSS */
+.cart-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#cart-table thead th {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+}
+
+#cart-table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#cart-table tbody td:last-child {
+  text-align: right;
+}
+
+.cart-footer {
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: right;
+}
+
+#cart-total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#checkout-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#checkout-btn:hover {
+  background-color: #3e8e41;
+}
+
+</style>
+<body>
+<div class="cart-container">
+    <h1>Shopping Cart</h1>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cart-body">
+      </tbody>
+    </table>
+    <div class="cart-footer">
+      <p id="cart-total">Total: $0.00</p>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </div>
+</body>
+<script>
+    // Cart page JS
+let cart = [];
+
+// Function to add item to cart
+function addItemToCart(item) {
+  cart.push(item);
+  renderCart();
+}
+
+// Function to remove item from cart
+function removeItemFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+// Function to render cart items
+function renderCart() {
+  const cartBody = document.getElementById('cart-body');
+  cartBody.innerHTML = '';
+  let total = 0;
+  
+  cart.forEach((item, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${item.name}</td>
+      <td>${item.quantity}</td>
+      <td>${item.price}</td>
+      <td>${item.quantity * item.price}</td>
+      <td><button onclick="removeItemFromCart(${index})">Remove</button></td>
+    `;
+    cartBody.appendChild(row);
+    total += item.quantity * item.price;
+  });
+  
+  const cartTotal = document.getElementById('cart-total');
+  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Example data
+const item1 = { name: 'Product 1', quantity: 2, price: 19.99 };
+const item2 = { name: 'Product 2', quantity: 1, price: 29.99 };
+const item3 = { name: 'Product 3', quantity: 3, price: 9.99 };
+
+addItemToCart(item1);
+addItemToCart(item2);
+addItemToCart(item3);
+</script>
+</html>
